@@ -3,7 +3,8 @@ import React from 'react'
 export const App = () => {
   return (
     <div>
-      Find me in src/app.js!
+      Hello Johanna! :-D
+      Hello Lisa
     </div>
   )
 }
