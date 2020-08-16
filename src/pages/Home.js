@@ -22,7 +22,7 @@ export const Home = () => {
           <Route path="/" exact>
             <DrinkList />
           </Route>
-          <Route path="/TBAinfo">
+          <Route path="/drinks/:id" exact>
             <Details />
           </Route>
         </Switch>
