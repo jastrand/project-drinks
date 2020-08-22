@@ -13,11 +13,11 @@ export const Details = () => {
       return;
     }
     dispatch(fetchInfo(id));
-  }, [dispatch, details, id]);
+  }, [id, details, dispatch]);
 
   return (
     <div>
-      <p>hello</p>
+      {details && <p>{details.strDrink}</p>}
 
     </div>
   )

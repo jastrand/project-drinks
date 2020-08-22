@@ -4,7 +4,7 @@ export const drinks = createSlice({
   name: 'drinks',
   initialState: {
     drinkData: [],
-    drinkDetails: []
+    drinkDetails: {}
   },
   reducers: {
     setDrinks: (state, action) => {
@@ -33,7 +33,7 @@ export const fetchInfo = (id) => {
     fetch(DETAILS_URL)
       .then((res) => res.json())
       .then((json) => {
-        dispatch(drinks.actions.setInfo({ id, drinkInfo: json.drinks }))
+        dispatch(drinks.actions.setInfo({ id, drinkInfo: json.drinks[0] }))
       });
   };
 };
