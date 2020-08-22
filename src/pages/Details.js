@@ -6,15 +6,19 @@ import { fetchInfo } from 'reducers/drinks'
 export const Details = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
-  const drinkDetails = useSelector((state) => state.drinks.drinkInfo[id])
+  const details = useSelector((state) => state.drinks.drinkDetails[id])
 
   useEffect(() => {
-    dispatch(fetchInfo(id))
-  }, [dispatch, drinkDetails, id])
+    if (details) {
+      return;
+    }
+    dispatch(fetchInfo(id));
+  }, [dispatch, details, id]);
 
   return (
     <div>
-      <p>{drinkDetails.strDrink}</p>
+      <p>hello</p>
+
     </div>
   )
 }

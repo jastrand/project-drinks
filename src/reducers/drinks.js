@@ -4,7 +4,7 @@ export const drinks = createSlice({
   name: 'drinks',
   initialState: {
     drinkData: [],
-    drinkInfo: []
+    drinkDetails: []
   },
   reducers: {
     setDrinks: (state, action) => {
@@ -12,7 +12,7 @@ export const drinks = createSlice({
     },
     setInfo: (state, action) => {
       const { id, drinkInfo } = action.payload;
-      state.drinkInfo[id] = drinkInfo
+      state.drinkDetails[id] = drinkInfo
     }
   }
 })
@@ -37,3 +37,4 @@ export const fetchInfo = (id) => {
       });
   };
 };
+
