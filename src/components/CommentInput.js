@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { userComments } from 'reducers/usercomments'
+import { commentStore } from 'reducers/commentStore'
 import styled from 'styled-components'
 
 export const CommentInput = ({ drinkId }) => {
   const dispatch = useDispatch()
-  const [comment, setComment] = useState('')
+  const [text, setText] = useState('')
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
-    dispatch(userComments.actions.addComment({ message: comment, drink: drinkId }))
-    setComment('')
+    dispatch(commentStore.actions.addComment({ message: text, drink: drinkId }))
+    setText('')
   }
 
   return (
@@ -19,16 +19,16 @@ export const CommentInput = ({ drinkId }) => {
         <Label>Have you tried this cocktail...?</Label>
         <Input
           type="text"
-          value={comment}
+          value={text}
           maxLength="140"
           minLength="5"
-          onChange={(e) => { setComment(e.target.value) }} />
-        <MessageLength color={comment.length !== 0 && comment.length <= 4 ? 'red' : 'black'}>{comment.length}/140</MessageLength>
+          onChange={(e) => { setText(e.target.value) }} />
+        <MessageLength color={text.length !== 0 && text.length <= 4 ? 'red' : 'black'}>{text.length}/140</MessageLength>
       </Form>
       <Button
         type="submit"
         onClick={handleOnSubmit}
-        disabled={comment.length < 5 || comment.length > 140}>
+        disabled={text.length < 5 || text.length > 140}>
         Post
       </Button>
     </Container>

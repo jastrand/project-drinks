@@ -20,9 +20,10 @@ export const drinks = createSlice({
   }
 })
 
-export const fetchDrinks = () => {
+export const fetchDrinks = (category) => {
+  const URL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`
   return (dispatch) => {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Wine')
+    fetch(URL)
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -40,7 +41,7 @@ export const fetchDrinks = () => {
   };
 };
 export const fetchInfo = (id) => {
-  const DETAILS_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
+  const DETAILS_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
   console.log(`fetching ${DETAILS_URL}`)
   return (dispatch) => {
     fetch(DETAILS_URL)

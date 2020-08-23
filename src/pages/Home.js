@@ -6,13 +6,41 @@ import thunk from 'redux-thunk'
 import { Details } from 'pages/Details'
 import { DrinkList } from 'components/DrinkList'
 import { drinks } from 'reducers/drinks'
+import { commentStore } from 'reducers/commentStore';
+import { Header } from 'components/Header';
 
 const reducer = combineReducers({
-  drinks: drinks.reducer
+  drinks: drinks.reducer,
+  commentStore: commentStore.reducer
 })
 
+const saveToLocalStorage = (state) => {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem('drinks-reduxState', serializedState);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const loadFromLocalStorage = () => {
+  try {
+    const serializedState = localStorage.getItem('drinks-reduxState');
+    if (serializedState === null) return undefined;
+    return JSON.parse(serializedState);
+  } catch (e) {
+    console.log(e);
+    return undefined;
+  }
+};
+
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
+
+const persistedState = loadFromLocalStorage();
+
+const store = createStore(reducer, persistedState, composeEnhancer(applyMiddleware(thunk)));
+
+store.subscribe(() => saveToLocalStorage(store.getState()));
 
 export const Home = () => {
   return (
@@ -20,6 +48,7 @@ export const Home = () => {
       <BrowserRouter>
         <Switch>
           <Route path="/" exact>
+            <Header />
             <DrinkList />
           </Route>
           <Route path="/drinks/:id" exact>
