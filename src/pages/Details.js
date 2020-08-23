@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchInfo } from 'reducers/drinks'
+import { Comments } from 'components/Comments'
 
 export const Details = () => {
   const { id } = useParams()
@@ -17,9 +18,9 @@ export const Details = () => {
 
   return (
     <div>
-      {details && <p>{details.strDrink} {details.strCategory}</p>}
-      {/* below is not working correct */}
-      {itemNotFound && <div><h2>Drink not found</h2> <Link to="/"> Back to start</Link></div>}
+      {details && <div><p>{details.strDrink} {details.strCategory}</p><Link to="/"> Back to start</Link></div>}
+      {itemNotFound && <div><h2>Drink not found</h2></div>}
+      <Comments />
     </div>
   )
 }

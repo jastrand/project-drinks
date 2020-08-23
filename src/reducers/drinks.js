@@ -54,6 +54,7 @@ export const fetchInfo = (id) => {
       .then((json) => {
         if (json.drinks) {
           dispatch(drinks.actions.setInfo(json.drinks[0]))
+          dispatch(drinks.actions.setErrorMessage(''))
         } else {
           throw new Error('404 not found')
         }
