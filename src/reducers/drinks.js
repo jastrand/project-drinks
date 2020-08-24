@@ -21,9 +21,9 @@ export const drinks = createSlice({
 })
 
 export const fetchDrinks = (category) => {
-  const URL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`
+  const DRINK_URL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`
   return (dispatch) => {
-    fetch(URL)
+    fetch(DRINK_URL)
       .then((res) => {
         if (res.ok) {
           return res.json();

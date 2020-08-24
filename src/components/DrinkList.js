@@ -1,20 +1,13 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchDrinks } from 'reducers/drinks'
 import { DrinkCard } from 'components/DrinkCard'
 import styled from 'styled-components'
 import { Dropdown } from 'components/Dropdown'
 
-export const DrinkList = () => {
-  const { category } = useParams()
+export const DrinkList = ({ category }) => {
   const dispatch = useDispatch()
   const drinks = useSelector((state) => state.drinks.drinkData)
-  const [category, setCategory] = useState('Cocktail')
-
-  const chosenCategory = cat => {
-    setCategory(cat)
-  }
 
   useEffect(() => {
     dispatch(fetchDrinks(category));
@@ -22,7 +15,7 @@ export const DrinkList = () => {
 
   return (
     <Container>
-      <Dropdown chosenCategory={chosenCategory} />
+      <Dropdown category={category} />
       {drinks.map((drink) => (
         <DrinkCard key={drink.idDrink} drink={drink} />
       ))}
