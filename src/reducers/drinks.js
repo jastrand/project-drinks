@@ -40,6 +40,8 @@ export const fetchDrinks = () => {
       });
   };
 };
+
+// This thunk fetches the details page with useParams
 export const fetchInfo = (id) => {
   const DETAILS_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
   console.log(`fetching ${DETAILS_URL}`)

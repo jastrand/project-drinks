@@ -9,8 +9,11 @@ export const DrinkList = () => {
   const drinks = useSelector((state) => state.drinks.drinkData)
 
   useEffect(() => {
+    if (drinks) {
+      return;
+    }
     dispatch(fetchDrinks());
-  }, [dispatch]);
+  }, [dispatch, drinks]);
 
   return (
     <Container>

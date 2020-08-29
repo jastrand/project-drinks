@@ -37,11 +37,12 @@ export const CommentInput = ({ drinkId }) => {
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
-  background-color: ${(props) => props.color || '#fff'};
-  border: 2px solid ${(props) => props.border || '#6495ED'}; 
+  justify-content: space-between;
+  background-color: #FDF5E6;
+  margin: 10px 0;
+  border: 1px solid pink;
+  width: 400px;
   padding: 10px;
-  width: 320px;
 
   @media (max-width: 400px) {
     width: 290px;
@@ -52,7 +53,7 @@ const Form = styled.form`
   flex-direction: column;
 `
 const Label = styled.label`
-  font-size: 25px;
+  font-size: 20px;
 `
 const Input = styled.input`
   height: 50px;
@@ -63,16 +64,16 @@ const Input = styled.input`
 `
 
 const MessageLength = styled.p`
-  font-size: 17px;
+  font-size: 11px;
   margin: 0;
   color: ${(props) => props.color || '#000'};
 `
 
 const Button = styled.button`
   height: 40px;
-  margin: 3px 3px 3px 13px;
+  align-self: center;
   text-transform: uppercase;
-  background-color: ${(props) => props.color || '#6495ED'};
+  background-color: ${(props) => props.color || '#f08080'};
   border: none;
   border-radius: 10px;
   color: #fff;
@@ -83,6 +84,6 @@ const Button = styled.button`
   }
 
   &:disabled {
-    background-color: lightgrey;
+    display: none;
   }
 `
