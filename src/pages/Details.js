@@ -30,7 +30,7 @@ export const Details = () => {
             <DrinkTitle>{details.strDrink} {details.strCategory}</DrinkTitle>
             <Text>
               {details.strIngredient1 && (
-                <Ingridient>{details.strMeasure1} {details.strIngredient1}</Ingridient>
+                <Ingridient>{details.strMeasure1}  {details.strIngredient1}</Ingridient>
               )}
               {details.strIngredient2 && (
                 <Ingridient>{details.strMeasure2} {details.strIngredient2}</Ingridient>
@@ -73,7 +73,7 @@ const Container = styled.section`
 const DetailsInfo = styled.section`
 `
 const CommentWrapper = styled.section`
-  display: flex;
+  
 `
 const Wrapper = styled.section`
   position: relative;
