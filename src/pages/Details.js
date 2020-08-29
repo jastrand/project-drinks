@@ -26,7 +26,7 @@ export const Details = () => {
       </div>
       <div>
         {comments.map((i, comment) => (
-          <Comment key={comment} comment={comment} drinkId={id} />
+          <Comment key={comment} comment={comment} id={id} />
         ))}
       </div>
     </div>

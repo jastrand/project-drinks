@@ -4,19 +4,19 @@ import { comments } from '../reducers/comments'
 
 export const Comment = ({ comment, id }) => {
   const dispatch = useDispatch()
-  const comm = useSelector((state) => state.comments.comments[comment])
-  const commentExist = comm.drink === id
-  console.log(id)
+  const userComments = useSelector((state) => state.comments.comments[comment])
+  const commentExist = userComments.drink === id
 
-  // const handleClick = () => {
-  //   console.log('removing')
-  // }
+  const handleClick = () => {
+    console.log('removing')
+    dispatch(comments.actions.removeComment({ comment }))
+  }
 
   return (
     <div>
-      <p>{comm.comment}</p>
+      {commentExist && <div><p>{userComments.comment}</p><button type="button" onClick={handleClick}>Remove comment</button></div>}
+
     </div>
   )
 }
 
-// button type="button" onClick={handleClick}>Remove comment</>

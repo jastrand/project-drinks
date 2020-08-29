@@ -9,6 +9,12 @@ export const comments = createSlice({
     addComment: (state, action) => {
       const userComment = action.payload
       state.comments.push(userComment)
+    },
+    removeComment: (state, action) => {
+      const { comment } = action.payload;
+      state.comments = state.comments.filter(
+        (item, index) => index !== comment
+      );
     }
   }
 })
