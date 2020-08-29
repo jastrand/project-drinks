@@ -11,7 +11,6 @@ export const Comment = ({ comment, id }) => {
   const commentExist = userComments.drink === id
 
   const handleClick = () => {
-    console.log('removing')
     dispatch(comments.actions.removeComment({ comment }))
   }
 
