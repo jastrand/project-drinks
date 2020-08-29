@@ -20,13 +20,13 @@ export const drinks = createSlice({
   }
 })
 
-export const fetchDrinks = (category) => {
-  const DRINK_URL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`
+export const fetchDrinks = () => {
+  const DRINK_URL = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail'
   return (dispatch) => {
     fetch(DRINK_URL)
       .then((res) => {
         if (res.ok) {
-          return res.json();
+          return res.json()
         } else {
           throw new Error(`code is ${res.status}`);
         }

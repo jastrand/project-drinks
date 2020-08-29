@@ -9,7 +9,7 @@ export const CommentInput = ({ drinkId }) => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
-    dispatch(commentStore.actions.addComment({ message: text, drink: drinkId }))
+    dispatch(commentStore.actions.addItem({ message: text, drink: drinkId }))
     setText('')
   }
 

@@ -8,18 +8,13 @@ const initialState = {
 }
 
 export const commentStore = createSlice({
-  name: 'commentStore',
-  initialState,
+  name: 'Comments',
+  // eslint-disable-next-line object-shorthand
+  initialState: initialState,
   reducers: {
-    addComment: (state, action) => {
-      const comments = action.payload
-      state.list.comments.push(comments)
-    },
-    removeComment: (state, action) => {
-      const { itemIndex } = action.payload;
-      state.list.comments = state.list.comments.filter(
-        (item, index) => index !== itemIndex
-      )
+    addItem: (state, action) => {
+      const { comment } = action.payload
+      state.list.comments.push(comment)
     }
   }
 })

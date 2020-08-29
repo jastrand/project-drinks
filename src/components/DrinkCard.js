@@ -24,7 +24,7 @@ background-color: white;
 margin: 15px 5px 5px 5px;
 display: flex;
 flex-direction: column;
-justify-content: space-around;
+justify-content: center;
 align-items: center;
 text-align: center;
 position: relative;

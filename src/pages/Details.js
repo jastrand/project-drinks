@@ -9,10 +9,9 @@ export const Details = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
   const details = useSelector((state) => state.drinks.drinkDetails)
-  /* eslint-disable-next-line */
-  const comments = useSelector((state) => state.commentStore.comments.filter((y) => y.details === id))
+  // eslint-disable-next-line max-len
+  const comments = useSelector((state) => state.commentStore.list.comments)
   const errorDetails = useSelector((state) => state.drinks.errorMessage)
-
   const itemNotFound = errorDetails === 'could not fetch drink'
 
   useEffect(() => {
@@ -25,8 +24,8 @@ export const Details = () => {
       {itemNotFound && <div><h2>Drink not found</h2></div>}
       <div>
         <h5>Comments from users</h5>
-        {comments && comments.map((comment) => (
-          <Comment key={comment.message} comment={comment} />
+        {comments && comments.map((comment, i) => (
+          <Comment key={i} comment={comment} />
         ))}
         <CommentInput drinkId={id} />
       </div>

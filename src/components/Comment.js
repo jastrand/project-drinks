@@ -6,7 +6,7 @@ export const Comment = ({ comment }) => {
   const dispatch = useDispatch()
 
   const handleClick = () => {
-    dispatch(commentStore.actions.removeComment(comment));
+    dispatch(commentStore.actions.removeItem(comment));
   }
 
   return (

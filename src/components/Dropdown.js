@@ -10,7 +10,7 @@ export const Dropdown = () => {
         onChange={(event) => setCategory(event.target.value)}
         value={category}>
         <option value="Wine">Wine</option>
-        <option value="Cocktails">Cocktails</option>
+        <option value="Cocktail">Cocktails</option>
         <option value="Vodka">Vodka</option>
       </select>
 
