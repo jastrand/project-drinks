@@ -14,8 +14,8 @@ export const DrinkList = () => {
 
   return (
     <Container>
-      {drinks.map((drink) => (
-        <DrinkCard key={drink.idDrink} drink={drink} />
+      {drinks.map((drink, i) => (
+        <DrinkCard key={i} drink={drink} />
       ))}
     </Container>
   )

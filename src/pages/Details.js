@@ -9,8 +9,7 @@ export const Details = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
   const details = useSelector((state) => state.drinks.drinkDetails)
-  // eslint-disable-next-line max-len
-  const comments = useSelector((state) => state.commentStore.list.comments)
+  const comments = useSelector((state) => state.comments.comments)
   const errorDetails = useSelector((state) => state.drinks.errorMessage)
   const itemNotFound = errorDetails === 'could not fetch drink'
 
@@ -23,11 +22,12 @@ export const Details = () => {
       {details && <div><p>{details.strDrink} {details.strCategory}</p><Link to="/"> Back to start</Link></div>}
       {itemNotFound && <div><h2>Drink not found</h2></div>}
       <div>
-        <h5>Comments from users</h5>
-        {comments && comments.map((comment, i) => (
-          <Comment key={i} comment={comment} />
-        ))}
         <CommentInput drinkId={id} />
+      </div>
+      <div>
+        {comments.map((i, comment) => (
+          <Comment key={comment} comment={comment} drinkId={id} />
+        ))}
       </div>
     </div>
   )

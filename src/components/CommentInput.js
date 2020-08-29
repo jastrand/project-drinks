@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { commentStore } from 'reducers/commentStore'
+import { comments } from 'reducers/comments'
 import styled from 'styled-components'
 
 export const CommentInput = ({ drinkId }) => {
@@ -9,7 +9,7 @@ export const CommentInput = ({ drinkId }) => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
-    dispatch(commentStore.actions.addItem({ message: text, drink: drinkId }))
+    dispatch(comments.actions.addComment({ comment: text, drink: drinkId }))
     setText('')
   }
 

@@ -1,18 +1,22 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { commentStore } from '../reducers/commentStore'
+import { useDispatch, useSelector } from 'react-redux'
+import { comments } from '../reducers/comments'
 
-export const Comment = ({ comment }) => {
+export const Comment = ({ comment, id }) => {
   const dispatch = useDispatch()
+  const comm = useSelector((state) => state.comments.comments[comment])
+  const commentExist = comm.drink === id
+  console.log(id)
 
-  const handleClick = () => {
-    dispatch(commentStore.actions.removeItem(comment));
-  }
+  // const handleClick = () => {
+  //   console.log('removing')
+  // }
 
   return (
     <div>
-      <p>{comment.message}</p>
-      <button type="button" onClick={handleClick}>Remove comment</button>
+      <p>{comm.comment}</p>
     </div>
   )
 }
+
+// button type="button" onClick={handleClick}>Remove comment</>

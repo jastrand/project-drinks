@@ -6,12 +6,12 @@ import thunk from 'redux-thunk'
 import { Details } from 'pages/Details'
 import { DrinkList } from 'components/DrinkList'
 import { drinks } from 'reducers/drinks'
-import { commentStore } from 'reducers/commentStore';
+import { comments } from 'reducers/comments';
 import { Header } from 'components/Header';
 
 const reducer = combineReducers({
   drinks: drinks.reducer,
-  commentStore: commentStore.reducer
+  comments: comments.reducer
 })
 
 const saveToLocalStorage = (state) => {
